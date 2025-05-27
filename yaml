@@ -1,0 +1,39 @@
+
+---
+
+## ▶️ How to Run the Project
+1. Clone or download the repository.
+2. Open in your favorite Java IDE.
+3. Compile and run the `InventoryManagementSystem.java` file.
+4. Use the menu options to perform inventory operations.
+
+---
+
+## 📸 Sample Output
+=== Inventory Management System ===
+
+Add Product
+
+View Products
+
+Update Quantity
+
+Remove Product
+
+Exit
+
+---
+
+## 🔧 Future Enhancements
+- Add persistent storage using files or databases
+- Add search functionality
+- Build GUI using JavaFX or Swing
+
+---
+
+## 🙌 Acknowledgments
+This project was developed as a practice for improving Java and OOP skills through hands-on learning and real-world examples.
+
+---
+
+Let me know if you want a GitHub repository setup or GUI version next!
