@@ -1,25 +1,26 @@
-// InventoryManagementSystem.java
 import java.util.*;
 
-class Product {
-    int id;
-    String name;
-    int quantity;
-    double price;
-
-    Product(int id, String name, int quantity, double price) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
-    }
-
-    void display() {
-        System.out.println(id + ". " + name + " | Qty: " + quantity + " | Price: Rs." + price);
-    }
-}
-
 public class InventoryManagementSystem {
+
+    // Inner class Product
+    static class Product {
+        int id;
+        String name;
+        int quantity;
+        double price;
+
+        Product(int id, String name, int quantity, double price) {
+            this.id = id;
+            this.name = name;
+            this.quantity = quantity;
+            this.price = price;
+        }
+
+        void display() {
+            System.out.println(id + ". " + name + " | Qty: " + quantity + " | Price: Rs." + price);
+        }
+    }
+
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Product> inventory = new ArrayList<>();
 
@@ -48,7 +49,7 @@ public class InventoryManagementSystem {
 
     static void addProduct() {
         System.out.print("Enter product name: ");
-        sc.nextLine();
+        sc.nextLine(); // consume leftover newline
         String name = sc.nextLine();
         System.out.print("Enter quantity: ");
         int qty = sc.nextInt();
@@ -89,15 +90,17 @@ public class InventoryManagementSystem {
         viewProducts();
         System.out.print("Enter product ID to remove: ");
         int id = sc.nextInt();
-        Iterator<Product> itr = inventory.iterator();
-        while (itr.hasNext()) {
-            Product p = itr.next();
-            if (p.id == id) {
-                itr.remove();
+        boolean removed = false;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).id == id) {
+                inventory.remove(i);
                 System.out.println("Product removed.");
-                return;
+                removed = true;
+                break;
             }
         }
-        System.out.println("Product not found.");
+        if (!removed) {
+            System.out.println("Product not found.");
+        }
     }
 }
